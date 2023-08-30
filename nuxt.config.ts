@@ -1,13 +1,20 @@
 const DEFAULT_PORT = 3000
 
 export default defineNuxtConfig({
-  ssr: false, // Disable SSR, instead of it, use SSG.
+  experimental: {
+    inlineSSRStyles: false
+  },
+  ssr: true,
   devServer: {
     port: Number(process.env.NUXT_PORT) || DEFAULT_PORT
   },
   devtools: {
-    enabled: true
+    enabled: true,
+    timeline: {
+      enabled: true
+    }
   },
+  css: ['~/assets/css/fonts.scss'],
   typescript: {
     strict: true,
     /**

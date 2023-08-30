@@ -3,10 +3,12 @@ commitlint
 iconify
 Neue
 Noto
+Nunito
 nuxi
 nuxt
 nuxtjs
 pinia
+raipiot
 Roboto
 tailwindcss
 typecheck

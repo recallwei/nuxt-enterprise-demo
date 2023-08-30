@@ -1,9 +1,10 @@
 <template>
-  <div class="flex h-screen w-screen flex-col">
-    <header class="h-16 w-full bg-slate-100">Header</header>
-    <div class="h-[calc(100vh-112px)] w-full">
+  <div class="relative flex min-h-screen w-full flex-col overflow-y-auto">
+    <BaseHeader />
+    <div class="flex w-full flex-col">
       <slot />
     </div>
-    <footer class="h-12 w-full bg-slate-200">Footer</footer>
+    <BaseFooter />
+    <BackToTop />
   </div>
 </template>
