@@ -4,6 +4,7 @@
     <div class="flex w-full flex-col">
       <slot />
     </div>
+    <BaseDemoBanner />
     <BaseFooter />
     <BackToTop />
   </div>
