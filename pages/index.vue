@@ -85,7 +85,7 @@ const cardList = [
           </div>
         </div>
         <img
-          class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-2/5 rounded-2xl opacity-80 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-90"
+          class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-2/5 rounded-2xl opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-100"
           src="~/assets/img/home/main.jpg"
           alt=""
         />
