@@ -1,7 +1,8 @@
 brucesong
 commitlint
-kuayue
+gsap
 iconify
+kuayue
 Neue
 Noto
 Nunito

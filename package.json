@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-ts-starter-template",
+  "name": "nuxt-enterprise-demo",
   "description": "🍀 An opinionated Nuxt.js/TypeScript starter template.",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "scripts": {
@@ -18,13 +18,14 @@
   },
   "dependencies": {
     "@vueuse/motion": "^2.0.0",
+    "gsap": "^3.12.2",
     "pinia": "^2.1.6"
   },
   "devDependencies": {
     "@brucesong/eslint-config-vue": "^1.0.12",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@iconify/json": "^2.2.108",
+    "@iconify/json": "^2.2.109",
     "@nuxt/devtools": "^0.8.2",
     "@nuxt/image": "1.0.0-rc.1",
     "@pinia/nuxt": "^0.4.11",

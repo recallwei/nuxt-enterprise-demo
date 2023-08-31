@@ -1,4 +1,4 @@
-# Nuxt.js TypeScript Starter Template
+# Nuxt.js Enterprise Demo
 
 [English](./README.md) / 简体中文
 
