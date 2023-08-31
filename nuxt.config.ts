@@ -1,6 +1,19 @@
 const DEFAULT_PORT = 3000
 
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: '睿朴麟信息科技有限公司（西安）',
+      htmlAttrs: {
+        lang: 'zh-CN'
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
+  },
   ssr: true,
   devServer: {
     port: Number(process.env.NUXT_PORT) || DEFAULT_PORT

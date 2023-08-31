@@ -3,29 +3,6 @@ import { otherPartners, partners } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
-useSeoMeta({
-  title: '跟单猿交付协同平台',
-  description: '广义供应链数字化协同云平台',
-  ogTitle: '跟单猿交付协同平台',
-  ogDescription: '广义供应链数字化协同云平台',
-  ogImage: '[og:image]',
-  ogUrl: '[og:url]'
-})
-
-useHead({
-  title: '睿朴麟信息科技有限公司（西安）',
-  htmlAttrs: {
-    lang: 'zh-CN'
-  },
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.ico'
-    }
-  ]
-})
-
 const router = useRouter()
 
 const title = '跟单猿交付协同平台'
