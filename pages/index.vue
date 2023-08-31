@@ -5,8 +5,8 @@ import CheckIcon from '~icons/line-md/confirm-circle'
 
 const router = useRouter()
 
-const title = '跟单猿交付协同平台'
-const slogan = '成就供应链生态，组织间的智能协同'
+const MAIN_TITLE = '跟单猿交付协同平台'
+const SLOGAN = '成就供应链生态，组织间的智能协同'
 const descriptionRows = [
   '广义供应链数字化协同云平台',
   '信息流、物流、金流是供应链的基本目标',
@@ -36,18 +36,6 @@ const cardList = [
   { content: '在途管理' },
   { content: '物流管理' }
 ]
-
-const lazyVisible = useState(() => false)
-const checkIconLazyVisible = useState(() => false)
-
-onMounted(() => {
-  setTimeout(() => {
-    lazyVisible.value = true
-  }, 200)
-  setTimeout(() => {
-    checkIconLazyVisible.value = true
-  }, 600)
-})
 </script>
 
 <template>
@@ -55,10 +43,9 @@ onMounted(() => {
     <div class="h-screen w-full shrink-0">
       <div class="container relative mx-auto h-full w-full overflow-hidden">
         <div
-          v-if="lazyVisible"
           v-motion
           class="absolute bottom-40 left-0 top-0 m-auto flex h-fit flex-col text-white"
-          :initial="{ opacity: 0, y: 100 }"
+          :enter="{ opacity: 0, y: 100 }"
           :visible="{
             opacity: 1,
             y: 0,
@@ -72,10 +59,10 @@ onMounted(() => {
           :delay="100"
         >
           <span class="mb-4 text-7xl font-semibold tracking-wider">
-            {{ title }}
+            {{ MAIN_TITLE }}
           </span>
           <div class="mb-4 text-2xl font-medium tracking-wider">
-            {{ slogan }}
+            {{ SLOGAN }}
           </div>
           <div
             v-for="(row, index) in descriptionRows"

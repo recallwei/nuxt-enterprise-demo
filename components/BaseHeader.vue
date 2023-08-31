@@ -42,7 +42,7 @@ onMounted(() => {
     <div class="container mx-auto flex h-full items-center justify-between">
       <div
         v-motion-fade-visible
-        class="flex flex-col items-center space-y-1 text-white"
+        class="flex select-none flex-col items-center space-y-1 text-white"
       >
         <span class="logo-text text-4xl font-semibold">
           {{ appConfig.companyName }}
