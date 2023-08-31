@@ -3,7 +3,7 @@ import type { ImageItem } from '~/types'
 
 interface Props {
   data: ImageItem[]
-  reverse: boolean
+  reverse?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

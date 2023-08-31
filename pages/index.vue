@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { partners } from '~/constants'
+import { otherPartners, partners } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
@@ -29,6 +29,7 @@ useHead({
 const router = useRouter()
 
 const title = '跟单猿交付协同平台'
+const slogan = '成就供应链生态，组织间的智能协同'
 const descriptionRows = [
   '广义供应链数字化协同云平台',
   '信息流、物流、金流是供应链的基本目标',
@@ -70,9 +71,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <BaseBanner class="wave-container h-[calc(100vh-80px)]">
-      <ViewContainer>
+  <BaseBanner class="wave-container h-[calc(100vh-80px)]">
+    <div class="h-screen w-full shrink-0">
+      <div class="container relative mx-auto h-full w-full overflow-hidden">
         <div
           v-if="lazyVisible"
           v-motion
@@ -90,9 +91,12 @@ onMounted(() => {
           }"
           :delay="100"
         >
-          <span class="mb-8 text-7xl font-semibold tracking-wider">
+          <span class="mb-4 text-7xl font-semibold tracking-wider">
             {{ title }}
           </span>
+          <div class="mb-4 text-2xl font-medium tracking-wider">
+            {{ slogan }}
+          </div>
           <div
             v-for="(row, index) in descriptionRows"
             :key="index"
@@ -118,28 +122,53 @@ onMounted(() => {
           src="~/assets/img/home/main.jpg"
           alt="跟单猿交付协同平台"
         />
-      </ViewContainer>
-    </BaseBanner>
-
-    <ViewContainer class="flex items-center justify-center">
-      <div class="flex justify-between">
-        <div
-          v-for="(card, index) in cardList"
-          :key="index"
-          v-motion-roll-visible-bottom
-        >
-          <GradientCard class="h-72 w-60">
-            {{ card.content }}
-          </GradientCard>
-        </div>
       </div>
-    </ViewContainer>
+    </div>
+  </BaseBanner>
 
-    <ViewContainer class="bg-[#f9fafb] dark:bg-[#222222]">
-      <div class="flex h-full flex-col items-center space-y-8 py-12">
-        <span
+  <div class="h-screen w-full shrink-0">
+    <div
+      class="container relative mx-auto flex h-full w-full items-center justify-between overflow-hidden"
+    >
+      <div
+        v-for="(card, index) in cardList"
+        :key="index"
+        v-motion-roll-visible-bottom
+      >
+        <GradientCard class="h-72 w-60">
+          {{ card.content }}
+        </GradientCard>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full shrink-0 bg-[#f9fafb] dark:bg-[#222222]">
+    <div
+      class="container relative mx-auto flex flex-col items-center space-y-8 overflow-hidden py-12"
+    >
+      <span
+        v-motion
+        class="text-3xl font-medium"
+        :initial="{ opacity: 0, y: 100 }"
+        :visible="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'spring',
+            stiffness: 200,
+            damping: 100,
+            mass: 1
+          }
+        }"
+        :delay="100"
+      >
+        合作厂商
+      </span>
+
+      <div class="flex flex-col space-y-8">
+        <ImageSlider
           v-motion
-          class="text-3xl font-medium"
+          :data="partners"
           :initial="{ opacity: 0, y: 100 }"
           :visible="{
             opacity: 1,
@@ -152,64 +181,11 @@ onMounted(() => {
             }
           }"
           :delay="100"
-        >
-          合作厂商
-        </span>
-        <div class="flex flex-col space-y-8">
-          <ImageSlider
-            v-motion
-            :data="partners"
-            :initial="{ opacity: 0, y: 100 }"
-            :visible="{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                stiffness: 200,
-                damping: 100,
-                mass: 1
-              }
-            }"
-            :delay="100"
-          />
-          <ImageSlider
-            v-motion
-            :data="partners"
-            reverse
-            :initial="{ opacity: 0, y: 100 }"
-            :visible="{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                stiffness: 200,
-                damping: 100,
-                mass: 1
-              }
-            }"
-            :delay="100"
-          />
-          <ImageSlider
-            v-motion
-            :data="partners"
-            :initial="{ opacity: 0, y: 100 }"
-            :visible="{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                stiffness: 200,
-                damping: 100,
-                mass: 1
-              }
-            }"
-            :delay="100"
-          />
-        </div>
-
-        <span
+        />
+        <ImageSlider
           v-motion
-          class="mt-8 text-3xl font-medium"
+          :data="partners"
+          reverse
           :initial="{ opacity: 0, y: 100 }"
           :visible="{
             opacity: 1,
@@ -222,11 +198,72 @@ onMounted(() => {
             }
           }"
           :delay="100"
-        >
-          其他合作方
-        </span>
+        />
+        <ImageSlider
+          v-motion
+          :data="partners"
+          :initial="{ opacity: 0, y: 100 }"
+          :visible="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              stiffness: 200,
+              damping: 100,
+              mass: 1
+            }
+          }"
+          :delay="100"
+        />
       </div>
-    </ViewContainer>
+
+      <span
+        v-motion
+        class="!mt-20 text-3xl font-medium"
+        :initial="{ opacity: 0, y: 100 }"
+        :visible="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'spring',
+            stiffness: 200,
+            damping: 100,
+            mass: 1
+          }
+        }"
+        :delay="100"
+      >
+        其他合作方
+      </span>
+
+      <div class="flex w-full">
+        <div class="grow">123</div>
+        <ul
+          v-motion
+          :initial="{ opacity: 0, y: 100 }"
+          :visible="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              stiffness: 200,
+              damping: 100,
+              mass: 1
+            }
+          }"
+          :delay="100"
+          class="mx-12 w-1/4 space-y-1 text-center"
+        >
+          <li
+            v-for="(partner, index) in otherPartners"
+            :key="index"
+            class="tracking-wider"
+          >
+            {{ partner.label }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
