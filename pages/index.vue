@@ -13,6 +13,9 @@ const descriptionRows = [
   '内外协同是供应链核心竞争力'
 ]
 
+const PARTNERS_TITLE = '合作厂商'
+const OTHER_PARTNERS_TITLE = '其他合作方'
+
 const btnList = [
   {
     label: '立即开始',
@@ -34,8 +37,8 @@ const cardList = [
   { content: '物流管理' }
 ]
 
-const lazyVisible = ref(false)
-const checkIconLazyVisible = ref(false)
+const lazyVisible = useState(() => false)
+const checkIconLazyVisible = useState(() => false)
 
 onMounted(() => {
   setTimeout(() => {
@@ -97,7 +100,7 @@ onMounted(() => {
         <img
           class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-2/5 rounded-2xl opacity-80 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-90"
           src="~/assets/img/home/main.jpg"
-          alt="跟单猿交付协同平台"
+          alt=""
         />
       </div>
     </div>
@@ -139,7 +142,7 @@ onMounted(() => {
         }"
         :delay="100"
       >
-        合作厂商
+        {{ PARTNERS_TITLE }}
       </span>
 
       <div class="flex flex-col space-y-8">
@@ -210,7 +213,7 @@ onMounted(() => {
         }"
         :delay="100"
       >
-        其他合作方
+        {{ OTHER_PARTNERS_TITLE }}
       </span>
 
       <div class="flex w-full">
