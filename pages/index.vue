@@ -45,7 +45,7 @@ const cardList = [
         <div
           v-motion
           class="absolute bottom-40 left-0 top-0 m-auto flex h-fit flex-col text-white"
-          :enter="{ opacity: 0, y: 100 }"
+          :initial="{ opacity: 0, y: 100 }"
           :visible="{
             opacity: 1,
             y: 0,
