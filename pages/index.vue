@@ -61,9 +61,11 @@ const cardList = [
           <span class="mb-4 text-7xl font-semibold tracking-wider">
             {{ MAIN_TITLE }}
           </span>
+
           <div class="mb-4 text-2xl font-medium tracking-wider">
             {{ SLOGAN }}
           </div>
+
           <div
             v-for="(row, index) in descriptionRows"
             :key="index"
@@ -72,16 +74,21 @@ const cardList = [
             <CheckIcon v-motion-fade-visible />
             <span>{{ row }}</span>
           </div>
-          <div class="h- mt-6 flex items-center space-x-8">
-            <button
+
+          <div class="mt-6 flex items-center space-x-8">
+            <div
               v-for="(btn, index) in btnList"
               :key="index"
-              class="-mb-2 rounded-md px-6 py-2 font-medium tracking-wide shadow-md transition-all hover:-translate-y-1 active:-translate-y-0 active:opacity-80"
-              :style="{ backgroundColor: btn.bgColor, color: btn.textColor }"
-              @click="btn.onClick"
+              class="-mb-1.5 pb-1.5 transition-all hover:-translate-y-1.5 active:-translate-y-0 active:opacity-80"
             >
-              {{ btn.label }}
-            </button>
+              <button
+                class="rounded-md px-6 py-2 font-medium tracking-wide shadow-md drop-shadow-md"
+                :style="{ backgroundColor: btn.bgColor, color: btn.textColor }"
+                @click="btn.onClick"
+              >
+                {{ btn.label }}
+              </button>
+            </div>
           </div>
         </div>
         <img
