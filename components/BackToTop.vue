@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import ArrowUp from '~icons/mdi/arrow-up'
+
 const showBtn = ref(false)
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
 onMounted(() => {
-  useEventListener('scroll', () => {
-    showBtn.value = window.scrollY > 0
-  })
+  useEventListener('scroll', () =>
+    setTimeout(() => {
+      showBtn.value = window.scrollY > 0
+    }, 100)
+  )
 })
 </script>
 
@@ -19,6 +23,6 @@ onMounted(() => {
     }"
     @click="scrollToTop"
   >
-    <span class="i-mdi-arrow-up h-8 w-8 text-white"></span>
+    <ArrowUp class="h-8 w-8 text-white" />
   </div>
 </template>

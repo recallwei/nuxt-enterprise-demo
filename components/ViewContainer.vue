@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto h-screen w-full shrink-0">
-    <slot />
+  <div class="h-screen w-full shrink-0">
+    <div class="container relative mx-auto h-full w-full overflow-hidden">
+      <slot />
+    </div>
   </div>
 </template>

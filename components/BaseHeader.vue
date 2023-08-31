@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
 
+const fixed = ref(false)
+
 interface NavItem {
   label: string
   path: string
@@ -24,16 +26,25 @@ const navList: NavItem[] = [
     path: '/contact-us'
   }
 ]
+
+onMounted(() => {
+  useEventListener('scroll', () => {
+    fixed.value = window.scrollY > 0
+  })
+})
 </script>
 
 <template>
-  <header class="h-20 w-full bg-gradient-to-b from-[#a157e7] to-[#9556e8]">
+  <header
+    class="top-0 z-50 h-20 w-full bg-gradient-to-b from-[#a157e7] to-[#9556e8] transition-all"
+    :class="fixed ? 'fixed shadow-lg drop-shadow-lg' : 'relative'"
+  >
     <div class="container mx-auto flex h-full items-center justify-between">
       <div
         v-motion-fade-visible
         class="flex flex-col items-center space-y-1 text-white"
       >
-        <span class="logo-text text-3xl font-bold">
+        <span class="logo-text text-4xl font-semibold">
           {{ appConfig.companyName }}
         </span>
         <span class="logo-second-text text-xs tracking-tighter">
@@ -49,6 +60,9 @@ const navList: NavItem[] = [
             {{ navItem.label }}
           </NuxtLink>
         </li>
+        <ClientOnly>
+          <ThemeButton />
+        </ClientOnly>
       </ul>
     </div>
   </header>

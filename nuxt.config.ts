@@ -1,9 +1,6 @@
 const DEFAULT_PORT = 3000
 
 export default defineNuxtConfig({
-  experimental: {
-    inlineSSRStyles: false
-  },
   ssr: true,
   devServer: {
     port: Number(process.env.NUXT_PORT) || DEFAULT_PORT
@@ -14,7 +11,13 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  css: ['~/assets/css/fonts.scss'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
+  css: ['~/assets/css/main.scss', '~/assets/css/fonts.scss'],
   typescript: {
     strict: true,
     /**
@@ -38,7 +41,7 @@ export default defineNuxtConfig({
     base: '/'
   },
   imports: {
-    presets: []
+    presets: ['pinia']
   },
   runtimeConfig: {
     public: {
@@ -49,27 +52,15 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/image',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    'unplugin-icons/nuxt'
   ],
   /**
    * Nuxt Image
    *
    * @see https://image.nuxt.com/
    */
-  image: {},
-  /**
-   * Nuxt TailwindCSS
-   *
-   * @see https://tailwindcss.nuxtjs.org/
-   */
-  tailwindcss: {
-    viewer: true
-  },
-  colorMode: {
-    classSuffix: ''
-  }
+  image: {}
 })

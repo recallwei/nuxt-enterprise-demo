@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex min-h-screen w-full flex-col overflow-y-auto">
+  <div class="global_hide-scrollbar relative flex min-h-screen w-full flex-col">
     <BaseHeader />
     <div class="flex w-full flex-col">
       <slot />

@@ -1,5 +1,6 @@
 brucesong
 commitlint
+kuayue
 iconify
 Neue
 Noto
@@ -10,6 +11,7 @@ nuxtjs
 pinia
 raipiot
 Roboto
+sinotrans
 tailwindcss
 typecheck
 unplugin

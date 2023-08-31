@@ -1,11 +1,17 @@
-import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons'
 import type { Config } from 'tailwindcss'
 
 const DEFAULT_FONTS =
   'Nunito, system-ui, -apple-system, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif'
 
 export default <Partial<Config>>{
-  // content: ['content/**/*.md'], // NOTE: Enable this when using Nuxt Content.
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.ts',
+    './app.vue'
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -16,10 +22,6 @@ export default <Partial<Config>>{
       }
     }
   },
-  plugins: [
-    iconsPlugin({
-      collections: getIconCollections(['mdi', 'line-md'])
-    })
-  ],
+  plugins: [],
   darkMode: ['class', '[data-theme="dark"]']
 }

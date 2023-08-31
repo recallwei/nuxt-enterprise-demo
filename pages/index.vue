@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { partners } from '~/constants'
+import { BrowserUtils } from '~/utils/browser'
+import CheckIcon from '~icons/line-md/confirm-circle'
+
 useSeoMeta({
   title: '跟单猿交付协同平台',
   description: '广义供应链数字化协同云平台',
@@ -36,10 +40,10 @@ const btnList = [
     label: '立即开始',
     bgColor: '#ffffff',
     textColor: '#000000',
-    onClick: () => openWindow('https://ap.gdyape.com/')
+    onClick: () => BrowserUtils.openNewWindow('https://ap.gdyape.com/')
   },
   {
-    label: '申请演示',
+    label: '预约演示',
     bgColor: '#a157e7',
     textColor: '#ffffff',
     onClick: () => router.push('/')
@@ -49,33 +53,42 @@ const btnList = [
 const cardList = [
   { content: '自行数据配置' },
   { content: '在途管理' },
-  { content: '物流管理' },
-  { content: '4' },
-  { content: '5' },
-  { content: '6' }
+  { content: '物流管理' }
 ]
+
+const lazyVisible = ref(false)
+const checkIconLazyVisible = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    lazyVisible.value = true
+  }, 200)
+  setTimeout(() => {
+    checkIconLazyVisible.value = true
+  }, 600)
+})
 </script>
 
 <template>
   <div>
     <BaseBanner class="wave-container h-[calc(100vh-80px)]">
-      <ViewContainer class="relative">
+      <ViewContainer>
         <div
+          v-if="lazyVisible"
           v-motion
           class="absolute bottom-40 left-0 top-0 m-auto flex h-fit flex-col text-white"
-          :initial="{
-            opacity: 0,
-            y: 150
-          }"
-          :enter="{
+          :initial="{ opacity: 0, y: 100 }"
+          :visible="{
             opacity: 1,
             y: 0,
             transition: {
               type: 'spring',
-              stiffness: 100,
-              delay: 200
+              stiffness: 200,
+              damping: 100,
+              mass: 1
             }
           }"
+          :delay="100"
         >
           <span class="mb-8 text-7xl font-semibold tracking-wider">
             {{ title }}
@@ -85,14 +98,14 @@ const cardList = [
             :key="index"
             class="mb-1 flex items-center space-x-1 text-lg"
           >
-            <span class="i-mdi-check-circle"></span>
+            <CheckIcon v-motion-fade-visible />
             <span>{{ row }}</span>
           </div>
-          <div class="mt-6 flex items-center space-x-8">
+          <div class="h- mt-6 flex items-center space-x-8">
             <button
               v-for="(btn, index) in btnList"
               :key="index"
-              class="-mb-2 rounded-md px-6 py-2.5 font-medium tracking-wide shadow-md transition-all hover:-translate-y-0.5 hover:opacity-90 active:-translate-y-0 active:opacity-75"
+              class="-mb-2 rounded-md px-6 py-2 font-medium tracking-wide shadow-md transition-all hover:-translate-y-1 active:-translate-y-0 active:opacity-80"
               :style="{ backgroundColor: btn.bgColor, color: btn.textColor }"
               @click="btn.onClick"
             >
@@ -101,7 +114,7 @@ const cardList = [
           </div>
         </div>
         <img
-          class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-1/2 rounded-2xl opacity-80 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-90"
+          class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-2/5 rounded-2xl opacity-80 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-90"
           src="~/assets/img/home/main.jpg"
           alt="跟单猿交付协同平台"
         />
@@ -109,9 +122,7 @@ const cardList = [
     </BaseBanner>
 
     <ViewContainer class="flex items-center justify-center">
-      <div
-        class="m-auto grid w-full grid-cols-3 items-center justify-center gap-8"
-      >
+      <div class="flex justify-between">
         <div
           v-for="(card, index) in cardList"
           :key="index"
@@ -121,6 +132,99 @@ const cardList = [
             {{ card.content }}
           </GradientCard>
         </div>
+      </div>
+    </ViewContainer>
+
+    <ViewContainer class="bg-[#f9fafb] dark:bg-[#222222]">
+      <div class="flex h-full flex-col items-center space-y-8 py-12">
+        <span
+          v-motion
+          class="text-3xl font-medium"
+          :initial="{ opacity: 0, y: 100 }"
+          :visible="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              stiffness: 200,
+              damping: 100,
+              mass: 1
+            }
+          }"
+          :delay="100"
+        >
+          合作厂商
+        </span>
+        <div class="flex flex-col space-y-8">
+          <ImageSlider
+            v-motion
+            :data="partners"
+            :initial="{ opacity: 0, y: 100 }"
+            :visible="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: 200,
+                damping: 100,
+                mass: 1
+              }
+            }"
+            :delay="100"
+          />
+          <ImageSlider
+            v-motion
+            :data="partners"
+            reverse
+            :initial="{ opacity: 0, y: 100 }"
+            :visible="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: 200,
+                damping: 100,
+                mass: 1
+              }
+            }"
+            :delay="100"
+          />
+          <ImageSlider
+            v-motion
+            :data="partners"
+            :initial="{ opacity: 0, y: 100 }"
+            :visible="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: 200,
+                damping: 100,
+                mass: 1
+              }
+            }"
+            :delay="100"
+          />
+        </div>
+
+        <span
+          v-motion
+          class="mt-8 text-3xl font-medium"
+          :initial="{ opacity: 0, y: 100 }"
+          :visible="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              stiffness: 200,
+              damping: 100,
+              mass: 1
+            }
+          }"
+          :delay="100"
+        >
+          其他合作方
+        </span>
       </div>
     </ViewContainer>
   </div>
