@@ -4,7 +4,7 @@ import SunIcon from '~icons/line-md/sunny-outline-loop'
 
 const themeMode = ref(ThemeUtils.getDefaultThemeMode())
 
-const changeThemeMode = () => {
+function changeThemeMode() {
   themeMode.value = themeMode.value === 'light' ? 'dark' : 'light'
   ThemeUtils.changeThemeMode(themeMode.value)
 }

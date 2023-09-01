@@ -24,7 +24,7 @@ useSeoMeta({
     <div class="flex w-full flex-col">
       <slot />
     </div>
-    <BaseDemoBanner />
+    <BaseFooterBanner />
     <BaseFooter />
     <BackToTop />
   </div>

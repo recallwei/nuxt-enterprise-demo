@@ -1,31 +1,9 @@
 <script setup lang="ts">
+import { navList } from '~/constants'
+
 const appConfig = useAppConfig()
 
 const fixed = ref(false)
-
-interface NavItem {
-  label: string
-  path: string
-}
-
-const navList: NavItem[] = [
-  {
-    label: '首页',
-    path: '/'
-  },
-  {
-    label: '解决方案',
-    path: '/solutions'
-  },
-  {
-    label: '关于我们',
-    path: '/about-us'
-  },
-  {
-    label: '联系我们',
-    path: '/contact-us'
-  }
-]
 
 onMounted(() => {
   useEventListener('scroll', () => {
@@ -36,8 +14,12 @@ onMounted(() => {
 
 <template>
   <header
-    class="top-0 z-50 h-20 w-full bg-gradient-to-b from-[#a157e7] to-[#9556e8] transition-all"
-    :class="fixed ? 'fixed shadow-lg drop-shadow-lg' : 'relative'"
+    class="top-0 z-50 h-20 w-full transition-all"
+    :class="
+      fixed
+        ? 'fixed shadow-lg drop-shadow-lg custom-fixed bg-[#9556e8]'
+        : 'relative bg-gradient-to-b from-[#a157e7] to-[#9556e8]'
+    "
   >
     <div class="container mx-auto flex h-full items-center justify-between">
       <div
@@ -60,9 +42,7 @@ onMounted(() => {
             {{ navItem.label }}
           </NuxtLink>
         </li>
-        <ClientOnly>
-          <ThemeButton />
-        </ClientOnly>
+        <ThemeButton />
       </ul>
     </div>
   </header>
@@ -74,5 +54,20 @@ onMounted(() => {
 }
 .logo-second-text {
   font-stretch: ultra-condensed;
+}
+
+.custom-fixed {
+  animation: fade-in-down 300ms ease-in-out 0s normal none 1 running;
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 </style>

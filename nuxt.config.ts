@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     }
   },
   ssr: true,
+  vite: {
+    base: '/'
+  },
   devServer: {
     port: Number(process.env.NUXT_PORT) || DEFAULT_PORT
   },
@@ -49,9 +52,6 @@ export default defineNuxtConfig({
      * @see https://nuxt.com/docs/getting-started/installation#new-project
      */
     shim: false
-  },
-  vite: {
-    base: '/'
   },
   imports: {
     presets: ['pinia']

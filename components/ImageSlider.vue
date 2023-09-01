@@ -14,19 +14,19 @@ const props = withDefaults(defineProps<Props>(), {
 const animationPaused = ref(false)
 const currentHoverItem = ref(-1)
 
-const handleClickImageItem = (url?: string) => {
+function handleClickImageItem(url?: string) {
   if (!url) {
     return
   }
   BrowserUtils.openNewWindow(url)
 }
 
-const stopAnimation = (index: number) => {
+function handleHoverItem(index: number) {
   animationPaused.value = true
   currentHoverItem.value = index
 }
 
-const resumeAnimation = () => {
+function handleLeaveItem() {
   animationPaused.value = false
   currentHoverItem.value = -1
 }
@@ -53,8 +53,8 @@ const resumeAnimation = () => {
           height: '100px'
         }"
         @click="handleClickImageItem(image.url)"
-        @mouseenter="stopAnimation(index)"
-        @mouseleave="resumeAnimation"
+        @mouseenter="handleHoverItem(index)"
+        @mouseleave="handleLeaveItem"
       />
     </div>
   </div>

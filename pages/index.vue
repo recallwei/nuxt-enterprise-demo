@@ -3,18 +3,10 @@ import { otherPartners, partners } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
+const { title, slogan, descriptionRows, partnersTitle, otherPartnersTitle } =
+  useAppConfig()
+
 const router = useRouter()
-
-const MAIN_TITLE = '跟单猿交付协同平台'
-const SLOGAN = '成就供应链生态，组织间的智能协同'
-const descriptionRows = [
-  '广义供应链数字化协同云平台',
-  '信息流、物流、金流是供应链的基本目标',
-  '内外协同是供应链核心竞争力'
-]
-
-const PARTNERS_TITLE = '合作厂商'
-const OTHER_PARTNERS_TITLE = '其他合作方'
 
 const btnList = [
   {
@@ -39,7 +31,9 @@ const cardList = [
 </script>
 
 <template>
-  <BaseBanner class="wave-container h-[calc(100vh-80px)]">
+  <BaseBanner
+    class="wave-container h-[calc(100vh-80px)] w-full bg-gradient-to-b from-[#9556e8] to-[#2054f3]"
+  >
     <div class="h-screen w-full shrink-0">
       <div class="container relative mx-auto h-full w-full overflow-hidden">
         <div
@@ -59,11 +53,11 @@ const cardList = [
           :delay="100"
         >
           <span class="mb-4 text-7xl font-semibold tracking-wider">
-            {{ MAIN_TITLE }}
+            {{ title }}
           </span>
 
           <div class="mb-4 text-2xl font-medium tracking-wider">
-            {{ SLOGAN }}
+            {{ slogan }}
           </div>
 
           <div
@@ -136,7 +130,7 @@ const cardList = [
         }"
         :delay="100"
       >
-        {{ PARTNERS_TITLE }}
+        {{ partnersTitle }}
       </span>
 
       <div class="flex flex-col space-y-8">
@@ -207,7 +201,7 @@ const cardList = [
         }"
         :delay="100"
       >
-        {{ OTHER_PARTNERS_TITLE }}
+        {{ otherPartnersTitle }}
       </span>
 
       <div class="flex w-full">
