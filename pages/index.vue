@@ -103,7 +103,7 @@ const cardList = [
         :key="index"
         v-motion-roll-visible-bottom
       >
-        <GradientCard class="h-72 w-60">
+        <GradientCard>
           {{ card.content }}
         </GradientCard>
       </div>

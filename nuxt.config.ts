@@ -3,7 +3,6 @@ const DEFAULT_PORT = 3000
 export default defineNuxtConfig({
   app: {
     head: {
-      title: '睿朴麟信息科技有限公司（西安）',
       htmlAttrs: {
         lang: 'zh-CN'
       },
