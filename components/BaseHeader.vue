@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { navList } from '~/constants'
 
-const appConfig = useAppConfig()
-
 const fixed = ref(false)
 
 onMounted(() => {
@@ -14,7 +12,7 @@ onMounted(() => {
 
 <template>
   <header
-    class="top-0 z-50 h-20 w-full transition-all"
+    class="top-0 z-50 h-14 w-full px-4 transition-all sm:h-20 sm:px-0 xl:px-20"
     :class="
       fixed
         ? 'fixed shadow-lg drop-shadow-lg custom-fixed bg-[#9556e8]'
@@ -22,21 +20,23 @@ onMounted(() => {
     "
   >
     <div class="container mx-auto flex h-full items-center justify-between">
-      <div
+      <NuxtLink
         v-motion-fade-visible
+        to="/"
         class="flex select-none flex-col items-center space-y-1 text-white"
       >
-        <span class="logo-text text-4xl font-semibold">
-          {{ appConfig.companyName }}
+        <span class="logo-text text-2xl font-semibold sm:text-4xl">
+          raipiot
         </span>
-        <span class="logo-second-text text-xs tracking-tighter">
-          {{ appConfig.companySlogan }}
+        <span class="logo-second-text hidden text-xs tracking-tighter sm:block">
+          Intelligent Manufacturing
         </span>
-      </div>
+      </NuxtLink>
       <ul class="flex items-center space-x-8 text-lg text-white">
         <li
           v-for="(navItem, index) in navList"
           :key="index"
+          class="hidden sm:block"
         >
           <NuxtLink :to="navItem.path">
             {{ navItem.label }}
@@ -49,11 +49,13 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.logo-text {
-  font-stretch: ultra-expanded;
-}
-.logo-second-text {
-  font-stretch: ultra-condensed;
+@media (min-width: 640px) {
+  .logo-text {
+    font-stretch: ultra-expanded;
+  }
+  .log-second-text {
+    font-stretch: ultra-condensed;
+  }
 }
 
 .custom-fixed {

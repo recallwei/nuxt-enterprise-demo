@@ -3,9 +3,6 @@ import { otherPartners, partners } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
-const { title, slogan, descriptionRows, partnersTitle, otherPartnersTitle } =
-  useAppConfig()
-
 const router = useRouter()
 
 const btnList = [
@@ -31,70 +28,90 @@ const cardList = [
 </script>
 
 <template>
-  <BaseBanner
-    class="wave-container h-[calc(100vh-80px)] w-full bg-gradient-to-b from-[#9556e8] to-[#2054f3]"
+  <div
+    class="h-fit w-full bg-gradient-to-b from-[#9556e8] to-[#2054f3] pb-20 pt-10 sm:h-[800px] sm:pt-10 xl:px-20"
   >
-    <div class="h-screen w-full shrink-0">
-      <div class="container relative mx-auto h-full w-full overflow-hidden">
-        <div
-          v-motion
-          class="absolute bottom-40 left-0 top-0 m-auto flex h-fit flex-col text-white"
-          :initial="{ opacity: 0, y: 100 }"
-          :visible="{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              stiffness: 200,
-              damping: 100,
-              mass: 1
-            }
-          }"
-          :delay="100"
+    <div
+      class="container relative mx-auto flex h-fit w-full flex-col items-center justify-center space-y-8 sm:h-full sm:flex-row sm:justify-between sm:space-y-0 sm:py-0 sm:pb-20"
+    >
+      <div
+        v-motion
+        class="flex flex-col text-white"
+        :initial="{ opacity: 0, y: 100 }"
+        :visible="{
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: 'spring',
+            stiffness: 200,
+            damping: 100,
+            mass: 1
+          }
+        }"
+        :delay="100"
+      >
+        <span
+          class="mb-4 text-[2.5rem] font-semibold sm:text-5xl sm:tracking-wider lg:text-6xl xl:text-7xl"
         >
-          <span class="mb-4 text-7xl font-semibold tracking-wider">
-            {{ title }}
-          </span>
+          跟单猿交付协同平台
+        </span>
 
-          <div class="mb-4 text-2xl font-medium tracking-wider">
-            {{ slogan }}
-          </div>
+        <div class="mb-4 text-xl font-medium sm:text-2xl sm:tracking-wider">
+          成就供应链生态，组织间的智能协同
+        </div>
 
-          <div
-            v-for="(row, index) in descriptionRows"
-            :key="index"
-            class="mb-1 flex items-center space-x-1 text-lg"
-          >
-            <CheckIcon v-motion-fade-visible />
-            <span>{{ row }}</span>
-          </div>
-
-          <div class="mt-6 flex items-center space-x-8">
+        <div class="flex items-center space-x-4">
+          <div>
             <div
-              v-for="(btn, index) in btnList"
+              v-for="(row, index) in [
+                '广义供应链数字化协同云平台',
+                '信息流、物流、金流是供应链的基本目标',
+                '内外协同是供应链核心竞争力'
+              ]"
               :key="index"
-              class="-mb-1.5 pb-1.5 transition-all hover:-translate-y-1.5 active:-translate-y-0 active:opacity-80"
+              class="mb-1 flex items-center space-x-1 text-base sm:text-lg"
             >
-              <button
-                class="rounded-md px-6 py-2 font-medium tracking-wide shadow-md drop-shadow-md"
-                :style="{ backgroundColor: btn.bgColor, color: btn.textColor }"
-                @click="btn.onClick"
-              >
-                {{ btn.label }}
-              </button>
+              <CheckIcon v-motion-fade-visible />
+              <span>{{ row }}</span>
             </div>
           </div>
-        </div>
-        <img
-          class="move-bounce-top absolute bottom-40 right-0 top-0 m-auto w-2/5 rounded-2xl opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all hover:opacity-100"
-          src="~/assets/img/home/main.jpg"
-          alt=""
-        />
-      </div>
-    </div>
-  </BaseBanner>
 
-  <div class="h-screen w-full shrink-0">
+          <img
+            v-if="false"
+            class="h-20 w-20 rounded-full bg-white opacity-90"
+            src="@/assets/img/logo/gdy.png"
+            alt=""
+          />
+        </div>
+
+        <div class="mt-6 flex items-center space-x-8">
+          <div
+            v-for="(btn, index) in btnList"
+            :key="index"
+            class="-mb-0.5 pb-0.5 transition-all hover:-translate-y-0.5 active:-translate-y-0 active:opacity-80"
+          >
+            <button
+              class="rounded-md px-6 py-2 font-medium tracking-wide shadow-md drop-shadow-md"
+              :style="{ backgroundColor: btn.bgColor, color: btn.textColor }"
+              @click="btn.onClick"
+            >
+              {{ btn.label }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <img
+        class="move-bounce-top w-[360px] select-none rounded-lg opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all duration-500 hover:opacity-100 lg:w-[500px] xl:w-[600px]"
+        src="~/assets/img/home/main.jpg"
+        alt=""
+      />
+
+      <ArrowDown />
+    </div>
+  </div>
+
+  <div class="h-screen w-full shrink-0 sm:h-[800px]">
     <div
       class="container relative mx-auto flex h-full w-full items-center justify-between overflow-hidden"
     >
@@ -130,7 +147,7 @@ const cardList = [
         }"
         :delay="100"
       >
-        {{ partnersTitle }}
+        合作厂商
       </span>
 
       <div class="flex flex-col space-y-8">
@@ -201,11 +218,17 @@ const cardList = [
         }"
         :delay="100"
       >
-        {{ otherPartnersTitle }}
+        其他合作方
       </span>
 
-      <div class="flex w-full">
-        <div class="grow">123</div>
+      <div class="flex w-full justify-center sm:justify-between">
+        <div class="hidden grow items-center justify-center sm:flex">
+          <img
+            width="600"
+            src="@/assets/img/home/other-partners.jpg"
+            alt=""
+          />
+        </div>
         <ul
           v-motion
           :initial="{ opacity: 0, y: 100 }"
@@ -220,7 +243,7 @@ const cardList = [
             }
           }"
           :delay="100"
-          class="mx-12 w-1/4 space-y-1 text-center"
+          class="mx-12 w-full space-y-1 text-center sm:w-1/4"
         >
           <li
             v-for="(partner, index) in otherPartners"
@@ -236,19 +259,6 @@ const cardList = [
 </template>
 
 <style scoped lang="scss">
-.wave-container::before {
-  content: '';
-  left: 0;
-  background: url(../assets/img/wave-bg.png);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  background-repeat: repeat-x;
-  background-position: center bottom;
-  bottom: 0;
-  z-index: -1;
-}
-
 .move-bounce-top {
   animation: move-bounce-top 10s linear infinite;
 }

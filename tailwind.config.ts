@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const DEFAULT_FONTS =
-  'Nunito, system-ui, -apple-system, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif'
+  'system-ui, -apple-system, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif'
 
 export default <Partial<Config>>{
   content: [
@@ -15,7 +15,7 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        default: [DEFAULT_FONTS]
+        default: DEFAULT_FONTS
       },
       textColor: {
         muted: '#999999'
