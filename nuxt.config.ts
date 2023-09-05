@@ -26,6 +26,17 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
+  nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
+    prerender: {
+      crawlLinks: false,
+      routes: ['/']
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
