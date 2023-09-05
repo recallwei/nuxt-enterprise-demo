@@ -17,7 +17,7 @@ function changeThemeMode() {
   >
     <component
       :is="themeMode === 'light' ? SunIcon : MoonIcon"
-      class="h-6 w-6 text-yellow-300"
+      class="h-6 w-6 text-yellow-400 dark:text-yellow-300"
     />
   </div>
 </template>

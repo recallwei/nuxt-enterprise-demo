@@ -15,10 +15,10 @@ onMounted(() => {
 
 <template>
   <header
-    class="top-0 z-50 h-14 w-full bg-[#dddddd] px-4 transition-all dark:bg-[#333333] sm:h-20 sm:px-0 xl:px-20"
+    class="top-0 z-50 h-14 w-full bg-white px-4 transition-all dark:bg-[#333333] sm:h-20 sm:px-0 xl:px-20"
     :class="
       fixed
-        ? 'fixed shadow-lg drop-shadow-lg custom-fixed bg-white dark:bg-[#333333]'
+        ? 'fixed shadow-lg drop-shadow-lg custom-fixed dark:bg-[#333333]'
         : 'relative'
     "
   >

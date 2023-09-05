@@ -25,7 +25,7 @@ const textMotion = ref(Motion.scrollBottom)
 
 <template>
   <div
-    class="h-fit w-full bg-[#f8f9fa] pb-20 pt-10 dark:bg-[#121212] sm:h-[800px] sm:pt-10 xl:px-20"
+    class="h-fit w-full bg-gradient-to-b from-white to-[#d3d3d3] pb-20 pt-10 dark:from-[#333333] dark:to-black sm:h-[800px] sm:pt-10 xl:px-20"
   >
     <div
       class="container relative mx-auto flex h-fit w-full flex-col items-center justify-center space-y-8 sm:h-full sm:flex-row sm:justify-between sm:space-y-0 sm:py-0 sm:pb-20"
