@@ -23,7 +23,7 @@ useSeoMeta({
 
 <template>
   <div
-    class="relative flex min-h-screen w-full flex-col text-black dark:text-white"
+    class="relative flex min-h-screen w-full flex-col bg-white text-black dark:bg-[#121212] dark:text-white"
   >
     <BaseHeader />
     <div class="flex w-full flex-col">

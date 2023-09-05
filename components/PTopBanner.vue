@@ -25,14 +25,14 @@ const textMotion = ref(Motion.scrollBottom)
 
 <template>
   <div
-    class="h-fit w-full bg-gradient-to-b from-[#9556e8] to-[#2054f3] pb-20 pt-10 sm:h-[800px] sm:pt-10 xl:px-20"
+    class="h-fit w-full bg-[#f8f9fa] pb-20 pt-10 dark:bg-[#121212] sm:h-[800px] sm:pt-10 xl:px-20"
   >
     <div
       class="container relative mx-auto flex h-fit w-full flex-col items-center justify-center space-y-8 sm:h-full sm:flex-row sm:justify-between sm:space-y-0 sm:py-0 sm:pb-20"
     >
       <div
         v-motion="textMotion"
-        class="flex flex-col text-white"
+        class="flex flex-col"
       >
         <span
           class="mb-4 text-[2.5rem] font-semibold sm:text-5xl sm:tracking-wider lg:text-6xl xl:text-7xl"
@@ -86,9 +86,12 @@ const textMotion = ref(Motion.scrollBottom)
       </div>
 
       <NuxtImg
-        class="move-bounce-top w-[360px] select-none rounded-lg opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all duration-500 hover:opacity-100 lg:w-[500px] xl:w-[600px]"
+        class="move-bounce-top select-none rounded-lg opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all duration-500 hover:opacity-100"
         src="/home/main.jpg"
         alt=""
+        sizes="sm:360px lg:460px xl:580px"
+        placeholder
+        preload
       />
 
       <ArrowDown />
