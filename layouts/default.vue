@@ -5,7 +5,10 @@ useHead({
   titleTemplate: () =>
     route.meta.title
       ? `${route.meta.title} - 睿朴麟信息科技有限公司（西安）`
-      : '睿朴麟信息科技有限公司（西安）'
+      : '睿朴麟信息科技有限公司（西安）',
+  htmlAttrs: {
+    class: 'scroll-bar'
+  }
 })
 
 useSeoMeta({

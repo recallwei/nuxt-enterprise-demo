@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Motion } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
@@ -19,22 +20,7 @@ const btnList = [
   }
 ]
 
-const textMotion = ref({
-  initial: {
-    opacity: 0,
-    y: 100
-  },
-  enter: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 250,
-      damping: 50,
-      mass: 1
-    }
-  }
-})
+const textMotion = ref(Motion.scrollBottom)
 </script>
 
 <template>
@@ -69,7 +55,7 @@ const textMotion = ref({
               :key="index"
               class="mb-1 flex items-center space-x-1 text-base sm:text-lg"
             >
-              <CheckIcon v-motion-fade-visible />
+              <CheckIcon />
               <span>{{ row }}</span>
             </div>
           </div>

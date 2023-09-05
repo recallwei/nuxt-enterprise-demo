@@ -27,3 +27,36 @@ body {
 [data-theme='dark'] {
   color: #ffffff;
 }
+
+.scroll-bar {
+  &::-webkit-scrollbar {
+    background: transparent;
+    height: 0.6em;
+    width: 0.6em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.6em;
+    background-color: #dddddd;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+}
+
+[data-theme='dark'].scroll-bar {
+  &::-webkit-scrollbar {
+    background: transparent;
+    height: 0.6em;
+    width: 0.6em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #3f3f3f;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #272727;
+  }
+}
