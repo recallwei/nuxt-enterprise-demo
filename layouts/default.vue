@@ -19,7 +19,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="global_hide-scrollbar relative flex min-h-screen w-full flex-col">
+  <div
+    class="relative flex min-h-screen w-full flex-col text-black dark:text-white"
+  >
     <BaseHeader />
     <div class="flex w-full flex-col">
       <slot />

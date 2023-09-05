@@ -13,10 +13,6 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', href: '/favicon.ico', sizes: 'any' }]
     }
   },
-  ssr: true,
-  vite: {
-    base: '/'
-  },
   devServer: {
     port: Number(process.env.NUXT_PORT) || DEFAULT_PORT
   },
@@ -43,7 +39,7 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  css: ['~/assets/css/main.scss', '~/assets/css/fonts.scss'],
+  css: ['~/styles/main.scss'],
   typescript: {
     strict: true,
     /**

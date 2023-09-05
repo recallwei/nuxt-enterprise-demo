@@ -1,8 +1,5 @@
 import type { Config } from 'tailwindcss'
 
-const DEFAULT_FONTS =
-  'system-ui, -apple-system, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif'
-
 export default <Partial<Config>>{
   content: [
     './components/**/*.{js,vue,ts}',
@@ -13,11 +10,12 @@ export default <Partial<Config>>{
     './app.vue'
   ],
   theme: {
+    fontFamily: {
+      sans: 'Nunito, Noto Sans, system-ui, -apple-system, Roboto, Helvetica Neue, Arial, sans-serif'
+    },
     extend: {
-      fontFamily: {
-        default: DEFAULT_FONTS
-      },
       textColor: {
+        primary: '#333333',
         muted: '#999999'
       }
     }

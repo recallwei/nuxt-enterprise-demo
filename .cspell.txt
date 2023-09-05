@@ -5,6 +5,7 @@ iconify
 kuayue
 Neue
 Noto
+nprogress
 Nunito
 nuxi
 nuxt

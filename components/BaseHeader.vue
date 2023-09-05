@@ -1,38 +1,30 @@
 <script setup lang="ts">
 import { navList } from '~/constants'
+import MenuIcon from '~icons/line-md/menu'
 
 const fixed = ref(false)
+const showMenu = ref(false)
 
 onMounted(() => {
   useEventListener('scroll', () => {
     fixed.value = window.scrollY > 0
+    showMenu.value = false
   })
 })
 </script>
 
 <template>
   <header
-    class="top-0 z-50 h-14 w-full px-4 transition-all sm:h-20 sm:px-0 xl:px-20"
+    class="top-0 z-50 h-14 w-full px-4 transition-all dark:bg-[#333333] sm:h-20 sm:px-0 xl:px-20"
     :class="
       fixed
-        ? 'fixed shadow-lg drop-shadow-lg custom-fixed bg-[#9556e8]'
-        : 'relative bg-gradient-to-b from-[#a157e7] to-[#9556e8]'
+        ? 'fixed shadow-lg drop-shadow-lg custom-fixed bg-white dark:bg-[#333333]'
+        : 'relative'
     "
   >
     <div class="container mx-auto flex h-full items-center justify-between">
-      <NuxtLink
-        v-motion-fade-visible
-        to="/"
-        class="flex select-none flex-col items-center space-y-1 text-white"
-      >
-        <span class="logo-text text-2xl font-semibold sm:text-4xl">
-          raipiot
-        </span>
-        <span class="logo-second-text hidden text-xs tracking-tighter sm:block">
-          Intelligent Manufacturing
-        </span>
-      </NuxtLink>
-      <ul class="flex items-center space-x-8 text-lg text-white">
+      <CompanyLogo link />
+      <ul class="flex items-center space-x-4 text-lg sm:space-x-8">
         <li
           v-for="(navItem, index) in navList"
           :key="index"
@@ -43,6 +35,31 @@ onMounted(() => {
           </NuxtLink>
         </li>
         <ThemeButton />
+        <MenuIcon
+          class="h-6 w-6 sm:hidden"
+          @click="() => (showMenu = !showMenu)"
+        />
+      </ul>
+    </div>
+
+    <!-- Mobile Only -->
+    <div
+      class="absolute inset-x-0 top-14 flex flex-col overflow-hidden bg-[#424242] text-white transition-all sm:hidden"
+      :class="showMenu ? 'h-40' : 'h-0'"
+    >
+      <ul class="flex flex-col justify-start space-y-2">
+        <li
+          v-for="(navItem, index) in navList"
+          :key="index"
+          class="mx-4 mt-4"
+        >
+          <NuxtLink
+            :to="navItem.path"
+            class="block transition-all active:opacity-90"
+          >
+            {{ navItem.label }}
+          </NuxtLink>
+        </li>
       </ul>
     </div>
   </header>
@@ -59,10 +76,10 @@ onMounted(() => {
 }
 
 .custom-fixed {
-  animation: fade-in-down 300ms ease-in-out 0s normal none 1 running;
+  animation: scroll-down 300ms ease-in-out 0s normal none 1 running;
 }
 
-@keyframes fade-in-down {
+@keyframes scroll-down {
   0% {
     opacity: 0;
     transform: translate3d(0, -100%, 0);

@@ -45,19 +45,19 @@ function handleClickEmail() {
 
       <div class="space-y-2.5 sm:py-2">
         <div class="flex items-center space-x-2">
-          <CompanyIcon class="mt-0.5 inline self-start" />
+          <CompanyIcon class="mt-0.5 inline shrink-0 self-start" />
           <span>苏州睿朴麟信息科技有限公司</span>
         </div>
         <div class="flex items-center space-x-2">
-          <HomeIcon class="mt-0.5 inline self-start" />
+          <HomeIcon class="mt-0.5 inline shrink-0 self-start" />
           <span>苏州市工业园区金鸡湖大道 88 号人工智能产业园 G1-404</span>
         </div>
         <div class="flex items-center space-x-2">
-          <PhoneIcon class="mt-0.5 inline self-start" />
+          <PhoneIcon class="mt-0.5 inline shrink-0 self-start" />
           <span>0512 - 66307608</span>
         </div>
         <div class="flex items-center space-x-2">
-          <EmailIcon class="mt-0.5 inline self-start" />
+          <EmailIcon class="mt-0.5 inline shrink-0 self-start" />
           <span
             class="cursor-pointer underline-offset-4 transition-all hover:underline active:opacity-80"
             @click="handleClickEmail"
@@ -69,18 +69,18 @@ function handleClickEmail() {
 
       <div class="space-y-2.5 sm:py-2">
         <div class="flex items-center space-x-2">
-          <CompanyIcon class="mt-0.5 inline self-start" />
+          <CompanyIcon class="mt-0.5 inline shrink-0 self-start" />
           <span> 睿朴麟信息科技（西安）有限公司 </span>
         </div>
         <div class="flex items-center space-x-2">
-          <HomeIcon class="mt-0.5 inline self-start" />
+          <HomeIcon class="mt-0.5 inline shrink-0 self-start" />
           <span
             >陕西省西安市高新区唐延路 11 号禾盛京广中心 E 座 27 层 2702 室
           </span>
         </div>
       </div>
 
-      <div class="flex flex-col items-center space-y-2 sm:ps-4">
+      <div class="flex flex-col items-center space-y-2 text-center sm:ps-4">
         <img
           class="w-24"
           src="~/assets/img/footer/official-accounts.png"
