@@ -13,9 +13,9 @@ function handleClickEmail() {
   <footer class="w-full">
     <div class="relative flex h-48 w-full flex-col items-center justify-center">
       <NuxtImg
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
         src="/background/demo.png"
         alt=""
-        class="absolute inset-0 -z-10 h-full w-full object-cover"
       />
       <span class="mt-2 text-lg text-white sm:text-xl">
         期待为您服务，便捷高效的物流管理马上开始

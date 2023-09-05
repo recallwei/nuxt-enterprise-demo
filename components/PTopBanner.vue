@@ -85,9 +85,9 @@ const textMotion = ref(Motion.scrollBottom)
         </div>
       </div>
 
-      <img
+      <NuxtImg
         class="move-bounce-top w-[360px] select-none rounded-lg opacity-90 contrast-125 drop-shadow-2xl backdrop-brightness-125 transition-all duration-500 hover:opacity-100 lg:w-[500px] xl:w-[600px]"
-        src="~/assets/img/home/main.jpg"
+        src="/home/main.jpg"
         alt=""
       />
 
