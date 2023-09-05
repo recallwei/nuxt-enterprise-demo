@@ -22,6 +22,5 @@ export default <Partial<Config>>{
       }
     }
   },
-  plugins: [],
   darkMode: ['class', '[data-theme="dark"]']
 }

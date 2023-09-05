@@ -12,8 +12,8 @@ function handleClickEmail() {
 <template>
   <footer class="w-full">
     <div class="relative flex h-48 w-full flex-col items-center justify-center">
-      <img
-        src="~/assets/img/background/demo.png"
+      <NuxtImg
+        src="/background/demo.png"
         alt=""
         class="absolute inset-0 -z-10 h-full w-full object-cover"
       />
