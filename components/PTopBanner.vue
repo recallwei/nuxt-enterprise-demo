@@ -24,7 +24,7 @@ const textMotion = ref({
     opacity: 0,
     y: 100
   },
-  visible: {
+  enter: {
     opacity: 1,
     y: 0,
     transition: {
@@ -33,8 +33,7 @@ const textMotion = ref({
       damping: 50,
       mass: 1
     }
-  },
-  delay: 50
+  }
 })
 </script>
 
