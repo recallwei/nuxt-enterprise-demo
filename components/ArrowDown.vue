@@ -7,7 +7,7 @@ const handleScrollDown = () => window.scrollTo({ top: 800, behavior: 'smooth' })
     class="absolute inset-x-0 -bottom-20 m-auto flex items-center justify-center sm:-bottom-12"
   >
     <svg
-      class="bounce-animation h-10 w-10 cursor-pointer text-white transition-all hover:text-gray-200"
+      class="bounce-animation h-10 w-10 cursor-pointer text-primary transition-all hover:text-gray-500 active:opacity-90 dark:text-white dark:hover:text-gray-200"
       aria-hidden="true"
       viewBox="-75.52 -43.52 599.04 599.04"
       fill="currentColor"
