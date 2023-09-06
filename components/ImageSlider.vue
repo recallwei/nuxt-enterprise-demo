@@ -62,10 +62,10 @@ function handleLeaveItem() {
 
 <style scoped lang="scss">
 .image-slider {
-  animation: scroll 30s linear infinite;
+  animation: scroll 60s linear infinite;
 }
 .image-slider-reverse {
-  animation: scroll 30s linear infinite reverse;
+  animation: scroll 60s linear infinite reverse;
 }
 
 @keyframes scroll {
@@ -74,7 +74,7 @@ function handleLeaveItem() {
   }
 
   100% {
-    transform: translate3d(calc(-200px * var(--image-count)), 0, 0);
+    transform: translate3d(calc(-80px * var(--image-count)), 0, 0);
   }
 }
 

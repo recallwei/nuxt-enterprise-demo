@@ -4,6 +4,22 @@ import MenuIcon from '~icons/line-md/menu'
 
 const fixed = ref(false)
 const showMenu = ref(false)
+const headerRef = ref(null)
+
+const router = useRoute()
+
+onClickOutside(headerRef, () => {
+  if (showMenu.value) {
+    showMenu.value = false
+  }
+})
+
+watch(
+  () => router.path,
+  () => {
+    showMenu.value = false
+  }
+)
 
 onMounted(() => {
   useEventListener('scroll', () => {
@@ -15,6 +31,7 @@ onMounted(() => {
 
 <template>
   <header
+    ref="headerRef "
     class="top-0 z-50 h-14 w-full bg-white px-4 transition-all dark:bg-[#333333] sm:h-20 sm:px-0 xl:px-20"
     :class="
       fixed
@@ -44,7 +61,7 @@ onMounted(() => {
 
     <!-- Mobile Only -->
     <div
-      class="absolute inset-x-0 top-14 flex flex-col overflow-hidden bg-[#424242] text-white transition-all sm:hidden"
+      class="absolute inset-x-0 top-14 flex flex-col overflow-hidden bg-[#eeeeee] transition-all dark:bg-[#424242] sm:hidden"
       :class="showMenu ? 'h-40' : 'h-0'"
     >
       <ul class="flex flex-col justify-start space-y-2">
@@ -63,6 +80,11 @@ onMounted(() => {
       </ul>
     </div>
   </header>
+
+  <div
+    v-show="showMenu"
+    class="fixed inset-0 z-10 h-screen w-screen bg-black opacity-80 transition-all"
+  />
 </template>
 
 <style scoped lang="scss">

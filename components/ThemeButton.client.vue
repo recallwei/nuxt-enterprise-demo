@@ -9,7 +9,7 @@ function changeThemeMode() {
   ThemeUtils.changeThemeMode(themeMode.value)
 }
 
-onMounted(() => ThemeUtils.changeThemeMode(themeMode.value))
+onMounted(() => changeThemeMode())
 </script>
 
 <template>

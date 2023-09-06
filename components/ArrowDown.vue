@@ -1,10 +1,11 @@
 <script setup lang="ts">
-const handleScrollDown = () => window.scrollTo({ top: 800, behavior: 'smooth' })
+const handleScrollDown = () => window.scrollTo({ top: 700, behavior: 'smooth' })
 </script>
 
 <template>
   <span
-    class="absolute inset-x-0 -bottom-20 m-auto flex items-center justify-center sm:-bottom-12"
+    v-motion-fade-visible
+    class="absolute inset-x-0 bottom-4 m-auto flex items-center justify-center sm:bottom-12"
   >
     <svg
       class="bounce-animation h-10 w-10 cursor-pointer text-primary transition-all hover:text-gray-500 active:opacity-90 dark:text-white dark:hover:text-gray-200"

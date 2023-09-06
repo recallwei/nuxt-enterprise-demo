@@ -13,22 +13,15 @@ function handleClickEmail() {
   <footer class="w-full">
     <div class="relative flex h-48 w-full flex-col items-center justify-center">
       <NuxtImg
-        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        class="absolute inset-0 h-full w-full object-cover"
         src="/background/demo.png"
         alt=""
+        placeholder
       />
-      <span class="mt-2 text-lg text-white sm:text-xl">
+      <span class="z-10 my-4 text-lg text-white sm:text-xl">
         期待为您服务，便捷高效的物流管理马上开始
       </span>
-      <div
-        class="-mb-0.5 mt-5 pb-0.5 transition-all hover:-translate-y-0.5 active:-translate-y-0 active:opacity-80"
-      >
-        <button
-          class="rounded-md bg-white px-3 py-1 font-medium tracking-wide text-black shadow-md drop-shadow-md"
-        >
-          预约演示
-        </button>
-      </div>
+      <BaseButton size="sm">预约演示</BaseButton>
     </div>
 
     <div
