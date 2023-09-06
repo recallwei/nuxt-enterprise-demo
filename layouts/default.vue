@@ -11,11 +11,14 @@ useHead({
   }
 })
 
+const title = '跟单猿交付协同平台 - 睿朴麟信息科技有限公司（西安）'
+const description = '广义供应链数字化协同云平台'
+
 useSeoMeta({
-  title: '跟单猿交付协同平台 - 睿朴麟信息科技有限公司（西安）',
-  description: '广义供应链数字化协同云平台',
-  ogTitle: '跟单猿交付协同平台 - 睿朴麟信息科技有限公司（西安）',
-  ogDescription: '广义供应链数字化协同云平台',
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
   ogImage: '[og:image]',
   ogUrl: '[og:url]'
 })

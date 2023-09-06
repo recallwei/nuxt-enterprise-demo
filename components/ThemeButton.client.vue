@@ -8,6 +8,8 @@ function changeThemeMode() {
   themeMode.value = themeMode.value === 'light' ? 'dark' : 'light'
   ThemeUtils.changeThemeMode(themeMode.value)
 }
+
+onMounted(() => ThemeUtils.changeThemeMode(themeMode.value))
 </script>
 
 <template>
