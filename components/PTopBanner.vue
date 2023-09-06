@@ -61,11 +61,11 @@ const imageMotion = ref(Motion.imageScrollBottom)
     class="relative flex items-start justify-center bg-gradient-to-b from-white to-[#d3d3d3] py-10 dark:from-[#333333] dark:to-[#121212] sm:items-center"
   >
     <div
-      class="container flex flex-col space-y-10 sm:mb-28 sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0"
+      class="container flex flex-col space-y-10 px-4 sm:mb-28 sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0 sm:px-0"
     >
       <div
         v-motion="textMotion"
-        class="flex shrink-0 flex-col self-center"
+        class="flex shrink-0 flex-col self-start"
       >
         <span
           class="mb-4 text-[2.5rem] font-semibold sm:text-5xl sm:tracking-wider lg:text-6xl xl:text-7xl"
@@ -123,7 +123,7 @@ const imageMotion = ref(Motion.imageScrollBottom)
           class="move-bounce-top select-none rounded-lg opacity-90 shadow-sm contrast-125 drop-shadow-lg backdrop-brightness-125 transition-all duration-500 hover:opacity-100"
           src="/home/main.jpg"
           alt=""
-          sizes="xs:280px sm:360px md:300px lg:380px xl:480px xxl:550px"
+          sizes="xs:100vw sm:100vw md:300px lg:380px xl:480px xxl:550px"
           placeholder
           preload
         />
@@ -141,19 +141,19 @@ const imageMotion = ref(Motion.imageScrollBottom)
 
 @keyframes move-bounce-top {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0px);
   }
   25% {
-    transform: translateY(8px);
+    transform: translateY(8px) translateX(4px);
   }
   50% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateX(0px);
   }
   75% {
-    transform: translateY(-8px);
+    transform: translateY(-8px) translateX(-4px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0px);
   }
 }
 </style>
