@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Motion } from '~/constants'
 import { BrowserUtils } from '~/utils/browser'
 import CheckIcon from '~icons/line-md/confirm-circle'
 
@@ -52,8 +51,37 @@ const btnList = ref([
   }
 ])
 
-const textMotion = ref(Motion.scrollBottom)
-const imageMotion = ref(Motion.imageScrollBottom)
+const textMotion = ref({
+  initial: {
+    opacity: 0,
+    y: 100
+  },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 250,
+      damping: 50,
+      mass: 1
+    }
+  }
+})
+const imageMotion = ref({
+  initial: {
+    opacity: 0,
+    y: 75
+  },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 300,
+      type: 'keyframes',
+      ease: 'easeIn'
+    }
+  }
+})
 </script>
 
 <template>

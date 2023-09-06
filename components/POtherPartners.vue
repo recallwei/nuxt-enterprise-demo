@@ -1,7 +1,22 @@
 <script setup lang="ts">
-import { Motion, otherPartners } from '~/constants'
+import { otherPartners } from '~/constants'
 
-const textMotion = ref(Motion.scrollBottomVisible)
+const textMotion = ref({
+  initial: {
+    opacity: 0,
+    y: 100
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 250,
+      damping: 50,
+      mass: 1
+    }
+  }
+})
 </script>
 
 <template>
