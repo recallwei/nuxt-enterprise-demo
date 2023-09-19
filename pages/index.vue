@@ -46,7 +46,7 @@
     width="700px"
     reverse
   />
-  <PMainCards class="h-fit min-h-[750px] bg-[#f9fafb] dark:bg-[#222222]" />
-  <PPartners class="h-fit min-h-[750px]" />
-  <POtherPartners class="bg-[#f9fafb] dark:bg-[#222222]" />
+  <!-- <PMainCards class="h-fit min-h-[750px] bg-[#f9fafb] dark:bg-[#222222]" /> -->
+  <PPartners class="h-fit min-h-[750px] bg-[#f9fafb] dark:bg-[#222222]" />
+  <POtherPartners />
 </template>
