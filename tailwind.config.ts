@@ -11,7 +11,7 @@ export default <Partial<Config>>{
   ],
   theme: {
     fontFamily: {
-      sans: 'Nunito, Noto Sans, system-ui, -apple-system, Roboto, Helvetica Neue, Arial, sans-serif'
+      sans: 'Nunito, Noto Sans SC, system-ui, -apple-system, Roboto, Helvetica Neue, Arial, sans-serif'
     },
     extend: {
       textColor: {
